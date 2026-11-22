@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>سمانا | SAMANA</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap">
+<style>
+:root{--bg:#E9F0F4;--surface:#fff;--ink:#14263A;--mute:#5E7284;--line:#D5E0E7;--rain:#2B7A8C;--rain-soft:#DCEEF1;--dusk:#14263A;--sand:#D9A441;--sand-soft:#F6E9CC;--sage:#5E8C61;--sage-soft:#E1EEDF;--page:#C9D6DE;--shadow:0 10px 30px rgba(20,38,58,.14)}
+:root{--arc-soft:#E6E3F3}
+:root[data-theme=dark]{--bg:#0F1B28;--surface:#172636;--ink:#E6EEF4;--mute:#8FA3B3;--line:#27394A;--rain:#4FB0C4;--rain-soft:#183A44;--sand-soft:#3A2F17;--sage-soft:#1F3322;--arc-soft:#2B2850;--page:#070E16;--shadow:0 10px 30px rgba(0,0,0,.5)}
+:root[data-theme=dark] .t-geo{color:#E8BE6A}:root[data-theme=dark] .t-bird{color:#8CC48F}:root[data-theme=dark] .t-arc{background:#2B2850;color:#B9B2F0}
+:root[data-theme=dark] .chip.on{background:var(--rain);border-color:var(--rain);color:#0B1622}:root[data-theme=dark] .pub{background:var(--rain);color:#0B1622}
+.img{border-radius:14px;overflow:hidden;margin-bottom:12px;height:132px}.img.tall{height:180px}.img svg{display:block;width:100%;height:100%}
+.mode{width:28px;height:28px;border-radius:50%;background:var(--surface);font-size:15px;line-height:1;display:grid;place-items:center;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{font-family:Cairo,Tajawal,system-ui,sans-serif;background:var(--page);color:var(--ink);display:flex;align-items:center;justify-content:center;padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+button:focus-visible,textarea:focus-visible{outline:2px solid var(--rain);outline-offset:2px}
+.phone{width:390px;max-width:100%;height:min(820px,100vh);background:var(--bg);border-radius:44px;box-shadow:var(--shadow),0 0 0 10px #0E1B2A;position:relative;overflow:hidden;display:flex;flex-direction:column}
+@media(max-width:430px){.phone{border-radius:0;box-shadow:none;height:100vh}}
+.status{display:flex;justify-content:space-between;padding:14px 26px 4px;font-size:12px;font-weight:700}
+.screen{display:none;flex:1;overflow-y:auto;padding-bottom:110px;scrollbar-width:none}
+.screen.on{display:block}
+.screen::-webkit-scrollbar{display:none}
+.hero{background:linear-gradient(180deg,var(--dusk) 0%,#2A5368 100%);color:#fff;padding:14px 20px 22px;border-radius:0 0 28px 28px;position:relative;overflow:hidden}
+.hero h1{font-size:28px;font-weight:900;letter-spacing:0}
+.hero p{font-size:13px;opacity:.8}
+.hero .sun{position:absolute;left:-30px;top:-30px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,#F2C46A 0%,rgba(242,196,106,0) 70%)}
+.filters{display:flex;gap:8px;overflow-x:auto;padding:14px 16px 6px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.chip{flex:none;padding:7px 14px;border-radius:99px;background:var(--surface);font-size:13px;font-weight:600;border:1px solid var(--line);color:var(--mute);transition:.2s}
+.chip.on{background:var(--dusk);color:#fff;border-color:var(--dusk)}
+.card{background:var(--surface);margin:12px 16px;border-radius:20px;padding:14px;text-align:right;display:block;width:calc(100% - 32px);box-shadow:0 2px 10px rgba(20,38,58,.06);transition:transform .15s}
+.card:active{transform:scale(.985)}
+.row{display:flex;align-items:center;gap:10px}
+.av{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-weight:900;color:#fff;flex:none}
+.who b{display:block;font-size:14px}.who span{font-size:11.5px;color:var(--mute)}
+.tag{margin-inline-start:auto;font-size:11px;font-weight:700;padding:3px 10px;border-radius:99px;white-space:nowrap}
+.t-rain{background:var(--rain-soft);color:var(--rain)}.t-geo{background:var(--sand-soft);color:#8A6212}.t-bird{background:var(--sage-soft);color:#3E6C42}.t-arc{background:#E6E3F3;color:#4B4380}
+.card p.txt{margin:10px 0;font-size:14px;line-height:1.85}
+.facts{display:flex;flex-wrap:wrap;gap:6px}
+.fact{font-size:11.5px;background:var(--bg);padding:4px 10px;border-radius:8px;color:var(--ink)}
+.bar{position:absolute;bottom:0;inset-inline:0;background:var(--surface);height:82px;display:flex;justify-content:space-around;align-items:flex-start;padding:10px 6px 0;border-radius:24px 24px 0 0;box-shadow:0 -6px 24px rgba(20,38,58,.1);z-index:5}
+.nav{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;font-weight:600;color:var(--mute);width:64px}
+.nav svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nav.on{color:var(--rain)}
+.fab{width:58px;height:58px;border-radius:50%;background:var(--sand);color:var(--dusk);font-size:32px;font-weight:700;margin-top:-26px;box-shadow:0 8px 18px rgba(217,164,65,.5),0 0 0 6px var(--surface);display:grid;place-items:center;line-height:1}
+.fab:active{transform:scale(.94)}
+h2.sec{font-size:17px;font-weight:900;padding:18px 20px 0}
+.forum{display:flex;gap:14px;align-items:center}
+.ficon{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:22px;flex:none}
+.forum b{font-size:15px}.forum small{display:block;font-size:12px;color:var(--mute);line-height:1.6}
+.count{font-size:11.5px;font-weight:700;color:var(--rain);margin-top:2px;display:block}
+.season{margin:-12px 16px 0;background:var(--surface);border-radius:22px;padding:18px;box-shadow:var(--shadow);position:relative}
+.season .big{font-size:26px;font-weight:900}
+.prog{height:8px;border-radius:9px;background:var(--line);margin:12px 0 6px;overflow:hidden}
+.prog i{display:block;height:100%;width:22%;background:linear-gradient(90deg,var(--rain),var(--sand));border-radius:9px}
+.note{display:flex;gap:12px;padding:12px 20px;font-size:14px;line-height:1.8}
+.note i{font-style:normal;font-size:20px}
+.next{margin:12px 16px;border-radius:20px;padding:16px;background:linear-gradient(120deg,#2A3B63,#14263A);color:#fff;display:flex;align-items:center;gap:14px}
+.next .moon{font-size:34px}
+.back{display:flex;align-items:center;gap:6px;font-weight:700;padding:10px 16px;font-size:14px;color:var(--rain)}
+.cm{background:var(--surface);margin:8px 16px;border-radius:16px;padding:12px;font-size:13.5px;line-height:1.7}
+.cm b{font-size:12.5px;color:var(--rain);display:block}
+.sheet-bg{position:absolute;inset:0;background:rgba(10,20,32,.5);opacity:0;pointer-events:none;transition:.25s;z-index:8}
+.sheet-bg.on{opacity:1;pointer-events:auto}
+.sheet{position:absolute;bottom:0;inset-inline:0;background:var(--surface);border-radius:28px 28px 0 0;padding:14px 20px 26px;transform:translateY(105%);transition:transform .3s cubic-bezier(.2,.8,.2,1);z-index:9;max-height:92%;overflow-y:auto}
+.sheet.on{transform:none}
+.grab{width:42px;height:4px;border-radius:9px;background:var(--line);margin:0 auto 12px}
+.sheet h3{font-size:18px;font-weight:900;margin-bottom:10px}
+.fld{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px}
+.fld span{color:var(--mute)}.fld b{font-weight:700}
+textarea{width:100%;height:84px;margin-top:12px;border:1px solid var(--line);border-radius:14px;padding:10px;font:inherit;font-size:14px;resize:none;background:var(--bg);color:var(--ink)}
+.quick{display:flex;gap:8px;margin:12px 0}
+.quick .chip{flex:1;text-align:center}
+.quick .chip.on{background:var(--rain);border-color:var(--rain)}
+.pub{width:100%;padding:14px;border-radius:16px;background:var(--dusk);color:#fff;font-weight:700;font-size:15px}
+.toast{position:absolute;top:56px;inset-inline:20px;background:var(--sage);color:#fff;border-radius:14px;padding:12px;text-align:center;font-weight:700;font-size:14px;transform:translateY(-140px);transition:.35s;z-index:20}
+.toast.on{transform:none}
+.prof{text-align:center;padding:24px 20px}
+.prof .av{width:84px;height:84px;font-size:32px;margin:0 auto 10px;background:var(--rain)}
+.stats{display:flex;gap:10px;margin:16px 16px 0}
+.stats div{flex:1;background:var(--surface);border-radius:16px;padding:12px;text-align:center}
+.stats b{font-size:22px;display:block}.stats span{font-size:12px;color:var(--mute)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="phone" id="phone">
+  <div class="status"><span>11:30 م</span><button class="mode" id="mode" aria-label="تبديل الوضع الليلي">☾</button><span>سمانا ٭ 5G</span></div>
+  <div class="toast" id="toast">تم النشر</div>
+
+  <!-- timeline -->
+  <section class="screen on" id="s-timeline">
+    <div class="hero"><div class="sun"></div><h1>سمانا</h1><p>رصد الهواة وتقويم السماء من حولك</p></div>
+    <div class="filters" id="filters"></div>
+    <div id="feed"></div>
+  </section>
+
+  <!-- forum -->
+  <section class="screen" id="s-forum">
+    <div class="hero"><h1>المنتدى</h1><p>أربعة أقسام لنقاش الطقس والمكان</p></div>
+    <div id="forums" style="padding-top:6px"></div>
+  </section>
+
+  <!-- calendar -->
+  <section class="screen" id="s-calendar">
+    <div class="hero" style="padding-bottom:40px"><h1>التقويم الفلكي</h1><p>مواسم الجزيرة العربية ومنازل النجوم</p></div>
+    <div class="season">
+      <p style="font-size:12px;color:var(--mute)">الموسم الحالي</p>
+      <div class="big">المربعانية</div>
+      <div class="prog"><i></i></div>
+      <p style="font-size:13px">اليوم الـ 5 من المربعانية – 11 ديسمبر</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--rain);font-weight:700">الطالع الجاري: طالع الإكليل (أول نجوم المربعانية)</p>
+    </div>
+    <h2 class="sec">أبرز الظواهر والملاحظات</h2>
+    <div class="note"><i>🥶</i><span>بداية دخول البرد الفعلي وزيادة الفوارق الحرارية بين الليل والنهار.</span></div>
+    <div class="note"><i>🌫️</i><span>تزايد فرص تشكل الضباب الصباحي في المناطق الوسطى والشمالية بعد الأمطار.</span></div>
+    <div class="note"><i>🔭</i><span>أفضل أوقات الرصد الفلكي ليلاً لصفاء السماء بعد انقشاع السحب.</span></div>
+    <div class="next"><div class="moon">✦</div><div><p style="font-size:12px;opacity:.7">الطالع القادم</p><b style="font-size:20px">طالع القلب</b><p style="font-size:13px;opacity:.85">يبدأ بعد 8 أيام</p></div></div>
+  </section>
+
+  <!-- profile -->
+  <section class="screen" id="s-profile">
+    <div class="hero"><h1>ملفي</h1><p>راصد جديد في مجتمع سمانا</p></div>
+    <div class="prof"><div class="av">أ</div><b style="font-size:18px">أنت</b><p style="font-size:13px;color:var(--mute)">الرياض – حي الياسمين</p></div>
+    <div class="stats"><div><b id="myCount">0</b><span>رصداتي</span></div><div><b>12</b><span>متابعون</span></div><div><b>4</b><span>أوسمة</span></div></div>
+  </section>
+
+  <!-- detail -->
+  <section class="screen" id="s-detail">
+    <button class="back" id="back">→ رجوع</button>
+    <div id="detail"></div>
+  </section>
+
+  <nav class="bar" id="bar">
+    <button class="nav on" data-go="timeline"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg>التايم لاين</button>
+    <button class="nav" data-go="forum"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>المنتدى</button>
+    <button class="fab" id="fab" aria-label="إضافة رصد جديد">+</button>
+    <button class="nav" data-go="calendar"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>التقويم الفلكي</button>
+    <button class="nav" data-go="profile"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>ملفي</button>
+  </nav>
+
+  <div class="sheet-bg" id="bg"></div>
+  <div class="sheet" id="sheet">
+    <div class="grab"></div>
+    <h3>إضافة رصد جديد</h3>
+    <div class="fld"><span>القسم</span><b>رصد محلي</b></div>
+    <div class="fld"><span>الموقع</span><b>الرياض – حي الياسمين</b></div>
+    <div class="fld"><span>التوقيت</span><b>الآن 11:30 م</b></div>
+    <textarea id="note" placeholder="اكتب ملاحظتك الميدانية..."></textarea>
+    <div class="quick" id="quick">
+      <button class="chip" data-q="temp">🌡️ الحرارة</button>
+      <button class="chip" data-q="wind">💨 الرياح</button>
+      <button class="chip" data-q="tag">🏷️ وسم الحالة</button>
+    </div>
+    <button class="pub" id="pub">انشر الرصد الآن</button>
+  </div>
+</div>
+
+<script>
+const COLORS=['#2B7A8C','#B8862B','#5E8C61','#6A5DB0','#14263A'];
+const posts=[
+ {id:1,img:'cloud',name:'عبدالمجيد العتيبي',role:'راصد محلي',loc:'الرياض – حي الصحافة',time:'منذ 6 دقائق',tag:'رصد محلي',cls:'t-rain',cat:['riyadh','rain'],txt:'بداية نشوءات ركامية مبشرة غرب وشمال غرب العاصمة الآن، مع تحسن ملحوظ في الرطوبة السطحية وهبوب رياح شرقية خفيفة. نتابع التطورات خلال الساعات القادمة بإذن الله.',facts:['23°C','شرقية 14 كم/س','سحب ركامية'],cm:[['ريم الدوسري','تأكيد من شمال الرياض، السحب بدأت تتكاثف.'],['محمد القحطاني','نتمنى لكم رصداً موفقاً.']]},
+ {id:2,img:'wadi',name:'فهد الحربي',role:'موثّق ميداني',loc:'وادي الرمة – غرب القصيم',time:'منذ 35 دقيقة',tag:'مواقع وجغرافيا',cls:'t-geo',cat:['qassim','geo','rain'],txt:'توثيق لجريان الشعاب المغذية لأعالي وادي الرمة بعد أمطار فجر اليوم، الأرض مرتوية والأجواء صافية ومعتدلة.',facts:['25.84° N, 43.49° E','أثر أمطار','موسم الوسم'],cm:[['خالد الشمري','مناظر رائعة، هل الجريان مستمر؟'],['ليلى العنزي','شكراً على التوثيق.']]},
+ {id:3,img:'birds',name:'د. ناصر السليم',role:'مهتم بالبيئة',loc:'روضة التنهات – شمال الرياض',time:'منذ ساعتين',tag:'البيئة والطيور المهاجرة',cls:'t-bird',cat:['riyadh','bird'],txt:'رصد أسراب من طائر القمري وبعض الطيور المهاجرة في محيط الروضة صباح اليوم، تزامناً مع اعتدال درجات الحرارة وبداية اخضرار السهول.',facts:['هجرة موسمية','غطاء نباتي','07:45 ص'],cm:[['نورة الفهد','هل التقطت صوراً للأنواع؟'],['سلطان المطيري','موسم جميل للمراقبة.']]},
+ {id:4,img:'chart',name:'سارة المنصور',role:'هاوية طقس',loc:'أبها – السودة',time:'منذ 4 ساعات',tag:'استفسار وأرشيف',cls:'t-arc',cat:['rain','arch'],txt:'سؤال للخبراء والمهتمين: هل تتفق مخرجات النماذج المسائية على استمرار حالة عدم الاستقرار على المرتفعات الجنوبية الغربية نهاية الأسبوع، أم يضعف المؤثر العلوي؟',facts:['قراءة نماذج','استفسار','أرشيف الحالات'],cm:[['عبدالله العسيري','النموذج الأوروبي يميل لاستمرارها حتى السبت.'],['منى الغامدي','أتابع معكم.']]}
+];
+const filters=[['all','الكل'],['riyadh','الرياض'],['qassim','القصيم'],['rain','أمطار وسحب'],['geo','مواقع وجغرافيا'],['bird','طيور وبيئة']];
+const forums=[['🌦️','var(--rain-soft)','الرصد المحلي والخبراء','قراءات وتحليلات الهواة والخبراء داخل المدن والمحافظات','142 تحديثاً اليوم'],['🏜️','var(--sand-soft)','المواقع والجغرافيا والقرى','توثيق الأودية، الشعاب، القرى، والمعالم أثناء الحالات الجوية','86 توثيقاً جديداً'],['🪶','var(--sage-soft)','البيئة والطيور المهاجرة','رصد الطيور المهاجرة، الكائنات، والغطاء النباتي وتأثرها بالمواسم','53 رصداً بيئياً'],['🗂️','var(--arc-soft)','الأرشيف والنماذج والاستفسارات','أرشفة الحالات المميزة، مقارنة التوقعات، وأسئلة الهواة','310 مواضيع مؤرشفة']];
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+let cur='all',last='timeline',myCount=0,uid=0;
+function art(k){
+ const i='g'+(uid++);
+ const sky={cloud:['#4C86B8','#F2C46A'],wadi:['#BFD9E6','#F6E9CC'],birds:['#9CCBE0','#E8F1D4'],chart:['#2E2A5E','#7A6FC0'],night:['#0B1630','#2A3B63']}[k]||['#4C86B8','#F2C46A'];
+ const S={
+ cloud:'<g fill="#fff" opacity=".92"><circle cx="90" cy="60" r="26"/><circle cx="125" cy="52" r="32"/><circle cx="165" cy="62" r="24"/><rect x="70" y="60" width="115" height="26" rx="13"/></g><g fill="#fff" opacity=".7"><circle cx="270" cy="40" r="16"/><circle cx="292" cy="36" r="20"/><rect x="255" y="40" width="58" height="16" rx="8"/></g><path fill="#14263A" d="M0 150V120h30V104h22v16h18V92h20v28h26V108h24v12h28V98h18v22h30V112h22v8h30V104h24v16h40V110h28V150z"/>',
+ wadi:'<path fill="#E2C48A" d="M0 150V95Q90 60 180 90T360 80V150z"/><path fill="#C99F5B" d="M0 150V120Q100 90 200 118T360 110V150z"/><path d="M40 150C90 125 140 135 180 112S290 95 330 80" stroke="#4FA3C7" stroke-width="9" fill="none" stroke-linecap="round"/><g fill="#5E8C61"><circle cx="60" cy="112" r="6"/><circle cx="250" cy="100" r="7"/></g>',
+ birds:'<circle cx="280" cy="38" r="20" fill="#F7D774"/><g fill="none" stroke="#14263A" stroke-width="3" stroke-linecap="round"><path d="M70 50q10-12 20 0q10-12 20 0"/><path d="M130 30q8-10 16 0q8-10 16 0"/><path d="M180 62q8-10 16 0q8-10 16 0"/><path d="M100 78q6-8 12 0q6-8 12 0"/></g><path fill="#7FB069" d="M0 150V108Q90 90 180 106T360 100V150z"/><path fill="#5E8C61" d="M0 150V128Q110 112 220 126T360 122V150z"/>',
+ chart:'<g fill="none" stroke="#fff" opacity=".45" stroke-width="1.5"><path d="M0 40Q90 20 180 44T360 30"/><path d="M0 62Q90 42 180 66T360 52"/><path d="M0 84Q90 64 180 88T360 74"/></g><path fill="#1B1740" d="M0 150V110L50 76L90 104L150 60L210 108L260 80L320 112L360 90V150z"/>',
+ night:'<g fill="#fff"><circle cx="40" cy="30" r="1.6"/><circle cx="110" cy="54" r="1.2"/><circle cx="170" cy="24" r="1.8"/><circle cx="230" cy="62" r="1.4"/><circle cx="320" cy="34" r="1.6"/><circle cx="280" cy="90" r="1.2"/></g><path fill="#F2D58A" d="M300 40a22 22 0 1 0 22 28a18 18 0 1 1-22-28z"/><path fill="#0B1220" d="M0 150V122Q90 108 180 120T360 114V150z"/>'};
+ return `<svg viewBox="0 0 360 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${sky[0]}"/><stop offset="1" stop-color="${sky[1]}"/></linearGradient></defs><rect width="360" height="150" fill="url(#${i})"/>${S[k]||S.cloud}</svg>`;
+}
+const root=document.documentElement;
+function setTheme(t){root.dataset.theme=t;$('#mode').textContent=t==='dark'?'☀':'☾'}
+$('#mode').onclick=()=>setTheme(root.dataset.theme==='dark'?'light':'dark');
+setTheme(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+
+function renderFilters(){$('#filters').innerHTML=filters.map(f=>`<button class="chip ${f[0]===cur?'on':''}" data-f="${f[0]}">${f[1]}</button>`).join('')}
+function renderFeed(){
+  const list=posts.filter(p=>cur==='all'||p.cat.includes(cur));
+  $('#feed').innerHTML=list.length?list.map(p=>`<button class="card" data-id="${p.id}"><div class="img">${art(p.img)}</div>
+   <div class="row"><div class="av" style="background:${COLORS[p.id%5]}">${p.name.replace('د. ','')[0]}</div>
+   <div class="who"><b>${p.name} <small style="font-weight:400;color:var(--mute)">(${p.role})</small></b><span>${p.loc} • ${p.time}</span></div></div>
+   <p class="txt">${p.txt}</p>
+   <div class="row" style="justify-content:space-between"><div class="facts">${p.facts.map(f=>`<span class="fact">${f}</span>`).join('')}</div><span class="tag t-x ${p.cls}" style="margin:0">${p.tag}</span></div></button>`).join(''):'<p style="text-align:center;padding:40px;color:var(--mute)">لا توجد رصدات في هذا التصنيف بعد</p>';
+}
+function renderForums(){$('#forums').innerHTML=forums.map(f=>`<button class="card forum"><div class="ficon" style="background:${f[1]}">${f[0]}</div><div><b>${f[2]}</b><small>${f[3]}</small><span class="count">${f[4]}</span></div></button>`).join('')}
+function show(id){$$('.screen').forEach(s=>s.classList.toggle('on',s.id==='s-'+id));$('#s-'+id).scrollTop=0}
+function go(id){last=id;show(id);$$('.nav').forEach(n=>n.classList.toggle('on',n.dataset.go===id))}
+function openDetail(id){
+  const p=posts.find(x=>x.id==id);
+  $('#detail').innerHTML=`<div class="card" style="margin-top:4px;width:calc(100% - 32px)"><div class="img tall">${art(p.img)}</div>
+   <div class="row"><div class="av" style="background:${COLORS[p.id%5]}">${p.name.replace('د. ','')[0]}</div><div class="who"><b>${p.name}</b><span>${p.role}</span></div><span class="tag ${p.cls}">${p.tag}</span></div>
+   <p class="txt" style="font-size:15px">${p.txt}</p>
+   <div class="facts" style="margin-bottom:10px">${p.facts.map(f=>`<span class="fact">${f}</span>`).join('')}</div>
+   <div style="font-size:12.5px;color:var(--mute);line-height:1.9">📍 ${p.loc}<br>🕒 ${p.time}</div></div>
+   <h2 class="sec" style="padding-top:6px">التعليقات (${p.cm.length})</h2>
+   ${p.cm.map(c=>`<div class="cm"><b>${c[0]}</b>${c[1]}</div>`).join('')}`;
+  show('detail');
+}
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+function sheet(on){$('#sheet').classList.toggle('on',on);$('#bg').classList.toggle('on',on)}
+
+document.addEventListener('click',e=>{
+  const f=e.target.closest('[data-f]');if(f){cur=f.dataset.f;renderFilters();renderFeed();return}
+  const c=e.target.closest('.card[data-id]');if(c){openDetail(c.dataset.id);return}
+  const n=e.target.closest('.nav');if(n){go(n.dataset.go);return}
+  const q=e.target.closest('[data-q]');if(q){q.classList.toggle('on');return}
+});
+$('#back').onclick=()=>go(last);
+$('#fab').onclick=()=>sheet(true);
+$('#bg').onclick=()=>sheet(false);
+$('#pub').onclick=()=>{
+  const t=$('#note').value.trim()||'رصد ميداني جديد من حي الياسمين، الأجواء صافية مع نسمات باردة.';
+  const on=$$('#quick .chip.on').map(x=>x.dataset.q);
+  const facts=['11:30 م'];
+  if(on.includes('temp'))facts.unshift('19°C');
+  if(on.includes('wind'))facts.unshift('شمالية 12 كم/س');
+  if(on.includes('tag'))facts.push('وسم الحالة');
+  posts.unshift({id:posts.length+10,img:'night',name:'أنت',role:'راصد محلي',loc:'الرياض – حي الياسمين',time:'الآن',tag:'رصد محلي',cls:'t-rain',cat:['riyadh','rain'],txt:t,facts,cm:[['سمانا','تم نشر رصدك بنجاح.']]});
+  myCount++;$('#myCount').textContent=myCount;
+  $('#note').value='';$$('#quick .chip').forEach(x=>x.classList.remove('on'));
+  sheet(false);cur='all';renderFilters();renderFeed();go('timeline');toast('تم نشر الرصد');
+};
+renderFilters();renderFeed();renderForums();
+</script>
+</body>
+</html>
